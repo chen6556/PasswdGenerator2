@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>300</width>
+    <height>360</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>16</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>PasswdGenerator2</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res/Icons.qrc">
+    <normaloff>:/DSV.ico</normaloff>:/DSV.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="MainPage">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="BtnToAdvancedPage">
+          <property name="text">
+           <string>Advanced</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Application Name:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LdtName"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Version Number:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LdtVersion"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Application ID:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="LdtID"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BtnGenerateLicense">
+          <property name="text">
+           <string>Generate License</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="AdvancedPage">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="BtnToMainPage">
+          <property name="text">
+           <string>Main</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Bits:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="SpxBits">
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="minimum">
+             <number>512</number>
+            </property>
+            <property name="maximum">
+             <number>4096</number>
+            </property>
+            <property name="singleStep">
+             <number>128</number>
+            </property>
+            <property name="value">
+             <number>1024</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BtnLoadPrivateKey">
+          <property name="text">
+           <string>Load Private Key</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BtnLoadPublicKey">
+          <property name="text">
+           <string>Load Public Key</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BtnVerifyLicense">
+          <property name="text">
+           <string>Verify License</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BtnGenerateKey">
+          <property name="text">
+           <string>Generate Key</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="action_play">
+   <property name="text">
+    <string>Play</string>
+   </property>
+  </action>
+  <action name="action_clear">
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </action>
+  <action name="action_protect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Protect</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="action2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>2</string>
+   </property>
+  </action>
+  <action name="action5">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>5</string>
+   </property>
+  </action>
+  <action name="action8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </action>
+  <action name="action_fill">
+   <property name="text">
+    <string>Fill</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../res/Icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>BtnGenerateLicense</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>GenerateLicense()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnGenerateKey</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>GenerateKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnLoadPrivateKey</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>LoadPrivateKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>LdtID</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ReadSetting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>LdtName</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ReadSetting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>LdtVersion</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ReadSetting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnLoadPublicKey</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>LoadPublicKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnVerifyLicense</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>VerifyLicense()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>GenerateLicense()</slot>
+  <slot>LoadPrivateKey()</slot>
+  <slot>GenerateKey()</slot>
+  <slot>ReadSetting()</slot>
+  <slot>LoadPublicKey()</slot>
+  <slot>VerifyLicense()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>DSV.ico</file>
+  </qresource>
+</RCC>
