@@ -38,8 +38,8 @@ void RSAAlgorithm::GenerateKey(std::string &privateKey, std::string &publicKey, 
     RSA_free(r);
     BIO_free_all(pub);
 	BIO_free_all(pri);
-    delete priKey;
-    delete pubKey;
+    delete[] priKey;
+    delete[] pubKey;
 }
 
 void RSAAlgorithm::BindKey(const std::string &privateKey, const std::string &publicKey)
@@ -83,7 +83,7 @@ std::string RSAAlgorithm::PrivateEncrypt(const std::string &message, const std::
 	}
 
 	// 释放内存
-	delete cache;
+	delete[] cache;
 	BIO_free_all(keyBIO);
 	RSA_free(rsa);
 
@@ -123,7 +123,7 @@ std::string RSAAlgorithm::PrivateDecrypt(const std::string &message, const std::
 	}
 
 	// 释放内存
-	delete cache;
+	delete[] cache;
 	BIO_free_all(keyBIO);
 	RSA_free(rsa);
 
@@ -168,7 +168,7 @@ std::string RSAAlgorithm::PublicEncrypt(const std::string &message, const std::s
 	}
 
 	// 释放内存
-	delete cache;
+	delete[] cache;
 	BIO_free_all(keyBIO);
 	RSA_free(rsa);
 
@@ -211,7 +211,7 @@ std::string RSAAlgorithm::PublicDecrypt(const std::string &message, const std::s
 	}
 
 	// 释放内存
-	delete cache;
+	delete[] cache;
 	BIO_free_all(keyBIO);
 	RSA_free(rsa);
 
