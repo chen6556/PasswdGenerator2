@@ -29,10 +29,10 @@ void MainWindow::Init()
     connect(m_UI->BtnToMainPage, &QPushButton::clicked, [this]() { m_UI->stackedWidget->setCurrentIndex(0); });
 
     std::ifstream key;
-    key.open(m_Settings.value("PrivateKey").toString().toStdString(), std::ios_base::binary);
+    key.open(m_Settings.value("PrivateKey").toString().toLocal8Bit(), std::ios_base::binary);
     m_PrivateKey = std::string((std::istreambuf_iterator<char>(key)), std::istreambuf_iterator<char>());
     key.close();
-    key.open(m_Settings.value("PublicKey").toString().toStdString(), std::ios_base::binary);
+    key.open(m_Settings.value("PublicKey").toString().toLocal8Bit(), std::ios_base::binary);
     m_PublicKey = std::string((std::istreambuf_iterator<char>(key)), std::istreambuf_iterator<char>());
     key.close();
 }
@@ -57,11 +57,11 @@ void MainWindow::GenerateLicense()
         return;
     }
 
-    QString message = m_UI->LdtName->text() + m_UI->LdtID->text();
-    const QStringList list = m_UI->LdtVersion->text().split('.');
-    message.append(QString("%1.%2").arg(list[0]).arg(list[1]));
+    QString message = m_UI->LdtName->text() + m_UI->LdtID->text() + m_UI->LdtVersion->text();
+    // const QStringList list = m_UI->LdtVersion->text().split('.');
+    // message.append(QString("%1.%2").arg(list[0]).arg(list[1]));
 
-    std::ofstream output(path.toLocalFile().toStdString(), std::ios_base::out | std::ios_base::binary);
+    std::ofstream output(path.toLocalFile().toLocal8Bit(), std::ios_base::out | std::ios_base::binary);
     output << Dongle::ToPrintableString(RSAAlgorithm::PrivateEncrypt(message.toStdString(), m_PrivateKey));
     output.close();
 }
@@ -74,7 +74,7 @@ void MainWindow::LoadPrivateKey()
         return;
     }
 
-    std::ifstream key(path.toLocalFile().toStdString(), std::ios_base::binary);
+    std::ifstream key(path.toLocalFile().toLocal8Bit(), std::ios_base::binary);
     m_PrivateKey = std::string((std::istreambuf_iterator<char>(key)), std::istreambuf_iterator<char>());
     key.close();
     m_Settings.setValue("PrivateKey", path.toLocalFile());
@@ -88,7 +88,7 @@ void MainWindow::LoadPublicKey()
         return;
     }
 
-    std::ifstream key(path.toLocalFile().toStdString(), std::ios_base::binary);
+    std::ifstream key(path.toLocalFile().toLocal8Bit(), std::ios_base::binary);
     m_PublicKey = std::string((std::istreambuf_iterator<char>(key)), std::istreambuf_iterator<char>());
     key.close();
     m_Settings.setValue("PublicKey", path.toLocalFile());
@@ -107,11 +107,11 @@ void MainWindow::VerifyLicense()
         return;
     }
 
-    QString message = m_UI->LdtName->text() + m_UI->LdtID->text();
-    const QStringList list = m_UI->LdtVersion->text().split('.');
-    message.append(QString("%1.%2").arg(list[0]).arg(list[1]));
+    QString message = m_UI->LdtName->text() + m_UI->LdtID->text() + m_UI->LdtVersion->text();
+    // const QStringList list = m_UI->LdtVersion->text().split('.');
+    // message.append(QString("%1.%2").arg(list[0]).arg(list[1]));
 
-    std::ifstream license(path.toLocalFile().toStdString(), std::ios_base::binary);
+    std::ifstream license(path.toLocalFile().toLocal8Bit(), std::ios_base::binary);
     const std::string licenseStr((std::istreambuf_iterator<char>(license)), std::istreambuf_iterator<char>());
     license.close();
     if (Dongle::Verify(message.toStdString(), Dongle::FromPrintableString(licenseStr), m_PublicKey))
@@ -135,10 +135,10 @@ void MainWindow::GenerateKey()
     std::string priKey, pubKey;
     RSAAlgorithm::GenerateKey(priKey, pubKey, m_UI->SpxBits->value());
     std::ofstream output;
-    output.open((path.toLocalFile() + "/PrivateKey.txt").toStdString(), std::ios_base::out | std::ios_base::binary);
+    output.open((path.toLocalFile() + "/PrivateKey.txt").toLocal8Bit(), std::ios_base::out | std::ios_base::binary);
     output << priKey;
     output.close();
-    output.open((path.toLocalFile() + "/PublicKey.txt").toStdString(), std::ios_base::out | std::ios_base::binary);
+    output.open((path.toLocalFile() + "/PublicKey.txt").toLocal8Bit(), std::ios_base::out | std::ios_base::binary);
     output << pubKey;
     output.close();
 }
